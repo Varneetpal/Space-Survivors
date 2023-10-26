@@ -4,23 +4,28 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5.0f; // Adjust player movement speed in the Inspector
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
+    //public Gun gun;
+    public Animator animator;
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    Vector2 movement;
+
+  
 
     private void Update()
     {
         // Get input for movement
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+         movement.x = Input.GetAxis("Horizontal");
+         movement.y = Input.GetAxis("Vertical");
 
-        // Calculate the movement vector
-        Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized;
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        // Apply movement
-        rb.velocity = movement * moveSpeed;
+    }
+
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }

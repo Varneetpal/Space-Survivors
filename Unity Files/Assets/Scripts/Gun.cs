@@ -4,25 +4,19 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private GameObject projectile;
-
-
-    [SerializeField] private float fireRate = 0.1f;
-    private float fireTime;
+    public GameObject bulletPrefab;
+    public Transform firepoint;
+    private float fireForce = 20f;
 
     void Update()
     {
         Shoot();
     }
 
-    private void Shoot()
+    public void Shoot()
     {
-        if (Input.GetKey(KeyCode.Space) && Time.time >= fireTime)
-        {
-            Debug.Log("Test");
-            Instantiate(projectile, transform.position, transform.rotation);
-            fireTime = Time.time + fireRate; //Set your fire rate cooldown
-        }
+        GameObject bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
+        bullet.GetComponent<Rigidbody2D>().AddForce(firepoint.up * fireForce, ForceMode2D.Impulse);
     }
 
 }
