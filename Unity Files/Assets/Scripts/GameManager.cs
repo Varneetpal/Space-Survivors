@@ -6,12 +6,14 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance = null;
+    public GameObject mainMenu;
+
 
     public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainMenu.SetActive(true);
     }
 
     void Awake()
