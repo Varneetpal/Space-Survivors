@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4203151255454081230}
   - component: {fileID: 8212806532654858003}
   - component: {fileID: 3283797390728262840}
+  - component: {fileID: 8258273959258472063}
   m_Layer: 0
-  m_Name: Final Form Tank
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8212806532654858003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,12 +76,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8adfedad592814ef6acf499f3458b34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 10
   maxHealth: 100
   currentHealth: 0
   healthbar: {fileID: 0}
   deathEffect: {fileID: 6416419833205740478, guid: e360672ae39314ff1a77fee796e40aaa, type: 3}
-  movementSpeed: 5
-  rb: {fileID: 4203151255454081230}
   cam: {fileID: 0}
 --- !u!114 &3283797390728262840
 MonoBehaviour:
@@ -94,9 +94,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8aa6374f3a26494a854d72d3ce5fc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 5691137740654994049}
-  bulletPrefab: {fileID: 367058742977544926, guid: d101e47cb554d490ca9aee389cdf4a4b, type: 3}
-  bulletForce: 20
+  firePoint: {x: 0, y: 0, z: 0}
+  bullet: {fileID: 2411521334049131300, guid: 757fce00a325640c6909f6081a5e4e47, type: 3}
+  bulletSpeed: 0
+  bulletTransform: {fileID: 5691137740654994049}
+  canFire: 1
+  timeBetweenFire: 0.5
+--- !u!61 &8258273959258472063
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594856998297205739}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.017288268, y: 0.0432207}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.61965764, y: 0.8444054}
+  m_EdgeRadius: 0
 --- !u!1 &2553671629333760843
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,14 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public GameObject collisionEffect;
-    private void OncollisionEnter2D(Collision2D collision)
+    private Vector3 mousepos;
+    public float lifeTime;
+    private Camera mainCam;
+    private Rigidbody2D rb;
+    [SerializeField] public float damage = 50.0f;
+
+    void Start()
     {
-        GameObject effect = Instantiate(collisionEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);
-        Destroy(gameObject);
+        Destroy(this.gameObject, lifeTime);
     }
+
+    
 }
