@@ -1,26 +1,58 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public Transform firePoint;
-    public GameObject bulletPrefab;
-    public float bulletForce = 20f;
+    private Camera mainCam;
+    public Vector3 firePoint;
+    public GameObject bullet;
+    public float bulletSpeed;
+    public Transform bulletTransform;
+    private Vector2 direction;
+    public bool canFire;
+    private float timer;
+    public float timeBetweenFire;
+
+    void Start()
+    {
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-        }
+        lookat();
+        Shoot();
     }
 
+    void lookat()
+    {
+        firePoint = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        direction = firePoint - transform.position;
+        direction.Normalize();
+        float angle = Vector2.SignedAngle(Vector2.up, direction);
+        transform.eulerAngles = new Vector3 (0, 0, angle);
+    }
+    
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        if (!canFire)
+        {
+            timer += Time.deltaTime;
+            if (timer > timeBetweenFire)
+            {
+                canFire = true;
+                timer = 0;
+            }
+        }
+        if (Input.GetMouseButton(0) && canFire)
+        {
+            canFire = false;
+            GameObject bullet1 = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            bullet1.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        }
     }
 }
