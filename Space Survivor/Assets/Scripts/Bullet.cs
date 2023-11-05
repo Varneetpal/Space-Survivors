@@ -16,5 +16,12 @@ public class Bullet : MonoBehaviour
         Destroy(this.gameObject, lifeTime);
     }
 
-    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.transform.CompareTag("Enemy"))
+        {
+            other.GetComponent<Enemy>().TakeDamage(damage);
+            Destroy(this.gameObject);
+        }
+    }
 }
