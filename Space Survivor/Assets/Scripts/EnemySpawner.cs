@@ -7,15 +7,15 @@ public class EnemySpawner : MonoBehaviour
 
     public GameObject enemyPrefab;
     [SerializeField] private float spawnRate = 2.0f;
-    private float spawnTimer;
-
-    private float spawnRange = 10.0f;
-
-    private Transform [] spawnPoints;
+    private float _spawnTimer;
+    public GameObject[] enemySpawners;
+    private GameObject _currentSpawner;
+    private int _index;
+    private int _enemyCount;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _enemyCount = 0;
     }
 
     // Update is called once per frame
@@ -26,27 +26,17 @@ public class EnemySpawner : MonoBehaviour
     
     private void SpawnEnemy()
     {
-        if (Time.time > spawnTimer)
+        if (Time.time > _spawnTimer)
         {
-            // Choosing a random spawn point
-
-            // float randomPosition1 = Random.Range(-spawnRange, spawnRange);
-            // float randomPosition2 = Random.Range(-spawnRange, spawnRange);
-            //
-            // Vector3 spawnPosition = transform.position + new Vector3(randomPosition1, 0, randomPosition2);
-            //
-            // Instantiate(enemyPrefab, spawnPosition, transform.rotation);
-            // spawnTimer = Time.time + spawnRate;
-            // currentEnemyHealth += 20.0f;
-            
-            
-            float randomPosition1 = Random.Range(-spawnRange, spawnRange);
-            float randomPosition2 = Random.Range(-spawnRange, spawnRange);
-
-            Vector2 spawnPosition = (Vector2)transform.position + new Vector2(randomPosition1, randomPosition2);
-
-            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-            spawnTimer = Time.time + spawnRate;
+            enemySpawners = GameObject.FindGameObjectsWithTag("EnemySpawn");
+            _index = Random.Range(0,enemySpawners.Length);
+            _currentSpawner = enemySpawners[_index];
+            float maxHealth = 100 + _enemyCount;
+            GameObject newEnemy = Instantiate(enemyPrefab, _currentSpawner.transform.position, _currentSpawner.transform.rotation);
+            newEnemy.GetComponent<Enemy>().maxHealth = maxHealth;
+            newEnemy.GetComponent<Enemy>().health = maxHealth;
+            _spawnTimer = Time.time + spawnRate;
+            _enemyCount++;
         }
     }
 }
