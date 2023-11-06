@@ -16,8 +16,6 @@ public class PlayerController : MonoBehaviour
     public float currentHealth;
     public HealthBar healthbar;
     public GameObject deathEffect;
-    
-    public Camera cam;
 
     [SerializeField] private float decayRate = 5f;
     [SerializeField] private float killRegenRate = 5f;
@@ -34,6 +32,7 @@ public class PlayerController : MonoBehaviour
         currentHealth -= decayRate * Time.deltaTime;
         healthbar.SetHealth(currentHealth);
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), (Input.GetAxis("Vertical")));
+        death();
     }
 
     private void FixedUpdate()
@@ -45,12 +44,6 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
-        if (currentHealth <= 0)
-        {
-            GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
-            Destroy(effect, 1.0f);
-            Destroy(this.gameObject);
-        }
     }
 
     public void regen()
@@ -61,5 +54,14 @@ public class PlayerController : MonoBehaviour
             healthbar.SetHealth(currentHealth);
         }
     }
-    
+
+    public void death()
+    {
+        if (currentHealth <= 0)
+        {
+            GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
+            Destroy(effect, 1.0f);
+            Destroy(this.gameObject);
+        }
+    }
 }
