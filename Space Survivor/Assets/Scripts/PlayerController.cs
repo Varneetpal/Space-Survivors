@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
+        healthbar.SetMaxhealth(maxHealth);
     }
 
     void Update()
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        healthbar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
             GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
