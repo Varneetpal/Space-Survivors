@@ -3051,10 +3051,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1804135976}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fd3f71765827ad4199ac62edfbc0e62, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f4c58390c8abda479852cfc7b2bee30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 803938871}
+  mainMenu: {fileID: 8726319528248120803, guid: 09a945db76d700b469f5ef14daa1ce96, type: 3}
+  player: {fileID: 3191041162254917129, guid: b350e8715c5d14915970c4d5a6bb6c81, type: 3}
 --- !u!1 &1837611921
 GameObject:
   m_ObjectHideFlags: 0
