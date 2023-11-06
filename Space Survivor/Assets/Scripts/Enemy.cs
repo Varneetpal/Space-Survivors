@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviour
             GameObject effect = Instantiate(deathEffect, position, rotation);
             Destroy(effect, 1.0f);
             Destroy(this.gameObject);
+            player.GetComponent<PlayerController>().regen();
         }
     }
 

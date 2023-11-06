@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     
     public Camera cam;
 
+    [SerializeField] private float decayRate = 5f;
+    [SerializeField] private float killRegenRate = 5f;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -28,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        currentHealth -= decayRate * Time.deltaTime;
+        healthbar.SetHealth(currentHealth);
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), (Input.GetAxis("Vertical")));
     }
 
@@ -45,6 +50,15 @@ public class PlayerController : MonoBehaviour
             GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
             Destroy(effect, 1.0f);
             Destroy(this.gameObject);
+        }
+    }
+
+    public void regen()
+    {
+        if(currentHealth < maxHealth)
+        {
+            currentHealth += killRegenRate;
+            healthbar.SetHealth(currentHealth);
         }
     }
     

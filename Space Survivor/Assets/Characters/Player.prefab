@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2958060060217325185}
   - component: {fileID: 1875543022798069057}
   m_Layer: 5
-  m_Name: HealthBarCanvas
+  m_Name: HealthBarPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,6 +245,8 @@ MonoBehaviour:
   healthbar: {fileID: 8680690382691310767}
   deathEffect: {fileID: 6416419833205740478, guid: e360672ae39314ff1a77fee796e40aaa, type: 3}
   cam: {fileID: 0}
+  decayRate: 5
+  killRegenRate: 5
 --- !u!114 &5602449463142785659
 MonoBehaviour:
   m_ObjectHideFlags: 0
