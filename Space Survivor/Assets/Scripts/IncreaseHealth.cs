@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class IncreaseHealth : MonoBehaviour
 {
+    private bool inCollision = false;
     public GameObject UiMessage;
     // Start is called before the first frame update
     void Start()
@@ -11,12 +12,22 @@ public class IncreaseHealth : MonoBehaviour
         UiMessage.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (inCollision && Input.GetKeyDown(KeyCode.Space))
+        {
+            GameManager.instance.upgradeHealth();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
+        inCollision = true;
         UiMessage.SetActive(true);
     }
     private void OnTriggerExit2D(Collider2D other)
     {
+        inCollision = false;
         UiMessage.SetActive(false);
 
     }
