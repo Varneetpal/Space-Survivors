@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IncreaseDamage : MonoBehaviour
 {
-
+    private bool inCollision = false;
     public GameObject UiMessage;
     // Start is called before the first frame update
     void Start()
@@ -12,12 +12,20 @@ public class IncreaseDamage : MonoBehaviour
         UiMessage.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (inCollision && Input.GetKeyDown(KeyCode.Space))
+        {
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        inCollision = true;
         UiMessage.SetActive(true);
     }
     private void OnTriggerExit2D(Collider2D other)
     {
+        inCollision = false;
         UiMessage.SetActive(false);
 
     }
