@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 direction;
     private GameObject player;
-    
+    public HealthBar healthbar;
+
     [SerializeField] public float maxHealth = 100.0f;
     [SerializeField] public float health = 100.0f;
     [SerializeField] private float damageToPlayer = 50.0f;
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player");
+        healthbar.SetMaxhealth(maxHealth);
     }
 
     void Update()
@@ -38,6 +40,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        healthbar.SetHealth(health);
         if (health <= 0)
         {
             var position = transform.position;
@@ -45,6 +48,7 @@ public class Enemy : MonoBehaviour
             GameObject effect = Instantiate(deathEffect, position, rotation);
             Destroy(effect, 1.0f);
             Destroy(this.gameObject);
+            player.GetComponent<PlayerController>().regen();
         }
     }
 
