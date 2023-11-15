@@ -61,7 +61,10 @@ public class PlayerController : MonoBehaviour
         {
             GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
             Destroy(effect, 1.0f);
+            PlayerAudioManager.instance.PlaySound("DeathSound");
             Destroy(this.gameObject);
+
+            
         }
     }
 }
