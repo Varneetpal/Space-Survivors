@@ -55,4 +55,9 @@ public class Shooting : MonoBehaviour
             bullet1.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         }
     }
+
+    public void increaseFireRate(float rate)
+    {
+        timeBetweenFire = (float) (timeBetweenFire * rate);
+    }
 }
