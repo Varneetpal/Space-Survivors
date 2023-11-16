@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = Instantiate(playerFinalForm);
+        player = Instantiate(playerDefualt);
         DontDestroyOnLoad(player);
         kills = 0;
         if (mainMenu){
