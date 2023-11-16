@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float movementSpeed = 5.0f;
     private Rigidbody2D rb;
     private Vector2 direction;
-    private GameObject player;
     public HealthBar healthbar;
 
     [SerializeField] public float maxHealth = 100.0f;
@@ -23,13 +22,12 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindWithTag("Player");
         healthbar.SetMaxhealth(maxHealth);
     }
 
     void Update()
     {
-        direction = player.transform.position - transform.position;
+        direction = GameManager.instance.player.transform.position - transform.position;
         direction.Normalize();
         float angle = Vector2.SignedAngle(Vector2.up, direction);
         transform.eulerAngles = new Vector3 (0, 0, angle);
@@ -49,7 +47,8 @@ public class Enemy : MonoBehaviour
             GameObject effect = Instantiate(deathEffect, position, rotation);
             Destroy(effect, 1.0f);
             Destroy(this.gameObject);
-            player.GetComponent<PlayerController>().regen();
+            GameManager.instance.player.GetComponent<PlayerController>().regen();
+            GameManager.instance.increaseKills();
         }
     }
 

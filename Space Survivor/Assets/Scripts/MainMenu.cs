@@ -8,9 +8,11 @@ public class MainMenu : MonoBehaviour
     public GameObject menu;
     public GameObject creditPage;
     public GameObject settingPage;
-
+    [SerializeField] public GameObject player;
     public void Start()
     {
+
+        player.SetActive(false);
         menu.SetActive(true);
         creditPage.SetActive(false);
         settingPage.SetActive(false);
@@ -19,6 +21,7 @@ public class MainMenu : MonoBehaviour
     public void playGame()
     {
         SceneManager.LoadScene("TopDown Shooter");
+        player.SetActive(true);
     }
 
     public void creditOpen() {

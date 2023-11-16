@@ -244,9 +244,9 @@ MonoBehaviour:
   currentHealth: 0
   healthbar: {fileID: 8680690382691310767}
   deathEffect: {fileID: 6416419833205740478, guid: e360672ae39314ff1a77fee796e40aaa, type: 3}
-  cam: {fileID: 0}
   decayRate: 5
   killRegenRate: 5
+  decayOn: 1
 --- !u!114 &5602449463142785659
 MonoBehaviour:
   m_ObjectHideFlags: 0

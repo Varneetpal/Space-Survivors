@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -19,17 +19,22 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float decayRate = 5f;
     [SerializeField] private float killRegenRate = 5f;
-
+    [SerializeField] private bool decayOn;
     void Start()
     {
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
         healthbar.SetMaxhealth(maxHealth);
+
+        GameObject.DontDestroyOnLoad(this.gameObject);
     }
 
     void Update()
     {
-        currentHealth -= decayRate * Time.deltaTime;
+        if (decayOn)
+        {
+            currentHealth -= decayRate * Time.deltaTime;
+        }
         healthbar.SetHealth(currentHealth);
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), (Input.GetAxis("Vertical")));
         death();
@@ -40,6 +45,17 @@ public class PlayerController : MonoBehaviour
         rb.velocity = movementDirection * movementSpeed;
     }
     
+    public void switchDecay()
+    {
+        if (decayOn)
+        {
+            decayOn = false;
+        }
+        else
+        {
+            decayOn = true;
+        }
+    }
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
@@ -55,6 +71,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void resetHealthAndPosition()
+    {
+        currentHealth = maxHealth;
+        transform.position = Vector3.zero;
+    }
+
     public void death()
     {
         if (currentHealth <= 0)
@@ -66,5 +88,12 @@ public class PlayerController : MonoBehaviour
 
             
         }
+    }
+
+    public void increaseHealth(float rate)
+    {
+        maxHealth = (float) (maxHealth * rate) ;
+        currentHealth = maxHealth;
+        healthbar.SetHealth(currentHealth);
     }
 }
