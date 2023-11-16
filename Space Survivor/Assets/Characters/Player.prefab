@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {x: 0, y: 0, z: 0}
-  bullet: {fileID: 2411521334049131300, guid: 757fce00a325640c6909f6081a5e4e47, type: 3}
+  bullet: {fileID: 367058742977544926, guid: d101e47cb554d490ca9aee389cdf4a4b, type: 3}
   bulletSpeed: 10
   bulletTransform: {fileID: 2597737978700395161}
   canFire: 1
