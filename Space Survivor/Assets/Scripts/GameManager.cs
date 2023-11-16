@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     {
         player = Instantiate(playerDefualt);
         DontDestroyOnLoad(player);
+        player.SetActive(false);
         kills = 0;
         if (mainMenu){
             
@@ -64,6 +65,11 @@ public class GameManager : MonoBehaviour
             kills = 0;
             SceneManager.LoadScene("shop");
         }
+    }
+
+    public void activtePlayer()
+    {
+        player.SetActive(true);
     }
 
     public void increaseKills()
