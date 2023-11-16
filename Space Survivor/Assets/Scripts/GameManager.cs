@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
 
     public void upgradeCharacter()
     {
+        playerLevel += 1;
         if(playerLevel == 1)
         {
             Destroy(player);
@@ -118,7 +119,7 @@ public class GameManager : MonoBehaviour
             player = Instantiate(playerFinalForm);
             DontDestroyOnLoad(player);
         }
-
+        SceneManager.LoadScene("TopDown Shooter");
         //to do - else game handles max character level
     }
 
