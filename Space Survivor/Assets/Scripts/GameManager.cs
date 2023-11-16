@@ -12,6 +12,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
 
+    private int playerLevel = 0;
+    public GameObject playerDefualt;
+    public GameObject playerUpgrade1;
+    public GameObject playerUpgrade2;
+    public GameObject playerFinalForm;
+
 
 
     private int kills;
@@ -25,6 +31,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = Instantiate(playerFinalForm);
+        DontDestroyOnLoad(player);
         kills = 0;
         if (mainMenu){
             
@@ -82,6 +90,30 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerController>().switchDecay();
         player.GetComponent<Shooting>().increaseFireRate(fireRateUpgradeRate);
         SceneManager.LoadScene("TopDown Shooter");
+    }
+
+    public void upgradeCharacter()
+    {
+        if(playerLevel == 1)
+        {
+            Destroy(player);
+            player = Instantiate(playerUpgrade1);
+            DontDestroyOnLoad(player);
+        }
+        else if (playerLevel == 2)
+        {
+            Destroy(player);
+            player = Instantiate(playerUpgrade2);
+            DontDestroyOnLoad(player);
+        }
+        else if (playerLevel == 3)
+        {
+            Destroy(player);
+            player = Instantiate(playerFinalForm);
+            DontDestroyOnLoad(player);
+        }
+
+        //to do - else game handles max character level
     }
 
 }
