@@ -7,7 +7,6 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject menu;
     public GameObject creditPage;
-    public GameObject settingPage;
     [SerializeField] public GameObject player;
     public void Start()
     {
@@ -15,7 +14,6 @@ public class MainMenu : MonoBehaviour
         player.SetActive(false);
         menu.SetActive(true);
         creditPage.SetActive(false);
-        settingPage.SetActive(false);
     }
 
     public void playGame()
@@ -34,19 +32,16 @@ public class MainMenu : MonoBehaviour
         creditPage.SetActive(false);
         menu.SetActive(true);
     }
-
-    public void settingOpen()
+    
+    public void toggleAllSound()
     {
-        menu.SetActive(false);
-        settingPage.SetActive(true);
+        AudioListener.volume = Mathf.Abs(AudioListener.volume - 1);
     }
 
-    public void settingClose()
+    public void UnMuteAllSound()
     {
-        settingPage.SetActive(false);
-        menu.SetActive(true);
+        AudioListener.volume = 1;
     }
-
 
     public void quitGame()
     {
