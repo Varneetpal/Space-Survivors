@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3813670957096272226}
   - component: {fileID: 4516026468707976223}
   - component: {fileID: 2606163281019707332}
+  - component: {fileID: 4181372406356632510}
   m_Layer: 0
   m_Name: BurstBullet
   m_TagString: Untagged
@@ -142,7 +143,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.041909218, y: -0.06205648}
@@ -158,3 +159,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9309125, y: 2.2176614}
   m_EdgeRadius: 0
+--- !u!114 &4181372406356632510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8967538834970020779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc0a773ad20f448c9b8e09e3398ffee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 5
+  damage: 40
