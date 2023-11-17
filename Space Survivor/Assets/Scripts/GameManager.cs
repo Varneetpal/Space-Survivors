@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     {
         player = Instantiate(playerDefualt);
         DontDestroyOnLoad(player);
-        player.SetActive(false);
+        player.SetActive(true);
         kills = 0;
         if (mainMenu){
             
