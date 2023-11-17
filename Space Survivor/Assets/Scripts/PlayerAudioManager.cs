@@ -7,10 +7,11 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Sound
 {
-    public string name; // Renamed from 'name'
+    public string name; 
     public AudioClip clip;
     [Range(0f, 1f)] public float volume = 1f;
     [Range(0.1f, 3f)] public float pitch = 1f;
+    public bool loop = false;
 }
 
 public class PlayerAudioManager : MonoBehaviour
@@ -51,6 +52,7 @@ public class PlayerAudioManager : MonoBehaviour
             Sound sound = soundDictionary[soundName];
             audioSource.volume = sound.volume;
             audioSource.pitch = sound.pitch;
+            audioSource.loop = sound.loop;
             audioSource.PlayOneShot(sound.clip);
         }
         else
@@ -59,5 +61,4 @@ public class PlayerAudioManager : MonoBehaviour
         }
     }
 
-    // Add more functions as needed, such as additional controls or features.
 }

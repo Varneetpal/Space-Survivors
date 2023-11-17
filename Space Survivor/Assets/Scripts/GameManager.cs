@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(player);
         player.SetActive(true);
         kills = 0;
+        PlayerAudioManager.instance.PlaySound("GameplayMusic");
         if (mainMenu){
             
             mainMenu.SetActive(true);
@@ -89,6 +90,8 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerController>().switchDecay();
         player.GetComponent<PlayerController>().increaseHealth(healthUpgradeRate);
         SceneManager.LoadScene("TopDown Shooter");
+        PlayerAudioManager.instance.PlaySound("UpgradeSound");
+
     }
 
     public void upgradeFireRate()
@@ -96,6 +99,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerController>().switchDecay();
         player.GetComponent<Shooting>().increaseFireRate(fireRateUpgradeRate);
         SceneManager.LoadScene("TopDown Shooter");
+        PlayerAudioManager.instance.PlaySound("UpgradeSound");
     }
 
     public void upgradeCharacter()
@@ -104,18 +108,21 @@ public class GameManager : MonoBehaviour
         {
             Destroy(player);
             player = Instantiate(playerUpgrade1);
+            PlayerAudioManager.instance.PlaySound("PowerUp");
             DontDestroyOnLoad(player);
         }
         else if (playerLevel == 2)
         {
             Destroy(player);
             player = Instantiate(playerUpgrade2);
+            PlayerAudioManager.instance.PlaySound("PowerUp");
             DontDestroyOnLoad(player);
         }
         else if (playerLevel == 3)
         {
             Destroy(player);
             player = Instantiate(playerFinalForm);
+            PlayerAudioManager.instance.PlaySound("PowerUp");
             DontDestroyOnLoad(player);
         }
 

@@ -50,7 +50,7 @@ public class Shooting : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && canFire)
         {
-            canFire = true;
+            //canFire = false;
             GameObject bullet1 = Instantiate(bullet, bulletTransform.position, bulletTransform.rotation);
             PlayerAudioManager.instance.PlaySound("Shoot");
             bullet1.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
