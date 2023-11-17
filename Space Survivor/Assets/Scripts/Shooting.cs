@@ -50,8 +50,9 @@ public class Shooting : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && canFire)
         {
-            canFire = false;
-            GameObject bullet1 = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            //canFire = false;
+            GameObject bullet1 = Instantiate(bullet, bulletTransform.position, bulletTransform.rotation);
+            PlayerAudioManager.instance.PlaySound("Shoot");
             bullet1.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         }
     }

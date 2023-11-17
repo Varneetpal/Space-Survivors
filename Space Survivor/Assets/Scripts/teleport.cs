@@ -43,6 +43,7 @@ public class teleport : MonoBehaviour
     {
         if (inCollision && Input.GetKeyDown(KeyCode.Space))
         {
+            PlayerAudioManager.instance.PlaySound("Teleport");
             GameManager.instance.loadShooterScene();
         }
     }
