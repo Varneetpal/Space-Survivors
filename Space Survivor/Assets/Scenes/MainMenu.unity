@@ -351,7 +351,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 803938871}
   creditPage: {fileID: 2090066576}
-  player: {fileID: 0}
 --- !u!1 &210327356
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,7 +980,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 803938871}
   creditPage: {fileID: 2090066576}
-  player: {fileID: 0}
 --- !u!1 &671231582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,7 +1626,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 803938871}
   creditPage: {fileID: 2090066576}
-  player: {fileID: 0}
 --- !u!1 &1303475981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,7 +1774,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 1303475981}
   creditPage: {fileID: 2090066576}
-  player: {fileID: 0}
 --- !u!1 &1317705584
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,11 +2312,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 803938871}
   player: {fileID: 0}
-  playerDefualt: {fileID: 6811250712738821619, guid: bd660a9e34a8a49ac8ec5dcef5184883, type: 3}
+  playerDefualt: {fileID: 6811250712738821619, guid: 4cf7ed6efc66e4c5ebd720df1c0e99be, type: 3}
   playerUpgrade1: {fileID: 4205886817348866550, guid: 4c24325d5254f48f290c84b2b642dd80, type: 3}
   playerUpgrade2: {fileID: 1802772093712948137, guid: 802ebc4be08b3451d8815fa234ff3c27, type: 3}
   playerFinalForm: {fileID: 3191041162254917129, guid: b350e8715c5d14915970c4d5a6bb6c81, type: 3}
-  roundLengthInKills: 10
+  roundLengthInKills: 5
   healthUpgradeRate: 1.5
   damageUpgradeRate: 1.5
   fireRateUpgradeRate: 0.5

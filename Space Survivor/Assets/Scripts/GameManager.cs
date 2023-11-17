@@ -31,17 +31,16 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.DontDestroyOnLoad(this.gameObject);
         player = Instantiate(playerDefualt);
         DontDestroyOnLoad(player);
-        player.SetActive(true);
+        player.SetActive(false);
         kills = 0;
         PlayerAudioManager.instance.PlaySound("GameplayMusic");
         if (mainMenu){
-            
             mainMenu.SetActive(true);
           }
 
-        GameObject.DontDestroyOnLoad(this.gameObject);
     }
 
     void Awake()
