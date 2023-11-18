@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -84,9 +85,12 @@ public class PlayerController : MonoBehaviour
             GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
             Destroy(effect, 1.0f);
             PlayerAudioManager.instance.PlaySound("DeathSound");
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
 
-            
+            switchDecay();
+            resetHealthAndPosition();
+
+            SceneManager.LoadScene("GameOver");
         }
     }
 
