@@ -10,13 +10,14 @@ public class PlayerController : MonoBehaviour
 
     // Player health info
     [SerializeField] private float movementSpeed = 5.0f;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Vector2 movementDirection;
     
     public float maxHealth = 100;
     public float currentHealth;
     public HealthBar healthbar;
     public GameObject deathEffect;
+
 
     [SerializeField] private float decayRate = 5f;
     [SerializeField] private float killRegenRate = 5f;
@@ -85,7 +86,6 @@ public class PlayerController : MonoBehaviour
             GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
             Destroy(effect, 1.0f);
             PlayerAudioManager.instance.PlaySound("DeathSound");
-            //Destroy(this.gameObject);
 
             switchDecay();
             resetHealthAndPosition();
@@ -98,6 +98,8 @@ public class PlayerController : MonoBehaviour
     {
         maxHealth = (float) (maxHealth * rate) ;
         currentHealth = maxHealth;
+        healthbar.SetMaxhealth(currentHealth);
         healthbar.SetHealth(currentHealth);
+        healthbar.setNotches();
     }
 }

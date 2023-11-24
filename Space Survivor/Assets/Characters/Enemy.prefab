@@ -200,6 +200,7 @@ MonoBehaviour:
   damageRate: 0.2
   damageTime: 0
   deathEffect: {fileID: 6416419833205740478, guid: e360672ae39314ff1a77fee796e40aaa, type: 3}
+  coinObject: {fileID: 6456037414835246862, guid: 08be2014e737541dca098ba290b30955, type: 3}
 --- !u!50 &6003876029597613353
 Rigidbody2D:
   serializedVersion: 4
@@ -410,6 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2133944146473158048}
+  notch: {fileID: 6021996588883596386, guid: 99360edd86b2649c8ab3d28a3b9a0f79, type: 3}
 --- !u!1 &5269492647193710377
 GameObject:
   m_ObjectHideFlags: 0

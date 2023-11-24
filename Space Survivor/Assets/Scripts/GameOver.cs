@@ -13,7 +13,7 @@ public class GameOver : MonoBehaviour
 
     public void playAgain()
     {
-        SceneManager.LoadScene("TopDown Shooter");
+        GameManager.instance.restartGame();
     }
 
     public void mainMenu(){
