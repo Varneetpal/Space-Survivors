@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;
 
+    public GameObject pauseScreen;
+    private bool paused;
 
 
     private int kills = 0;
