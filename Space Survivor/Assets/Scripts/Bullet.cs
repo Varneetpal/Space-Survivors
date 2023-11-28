@@ -20,9 +20,18 @@ public class Bullet : MonoBehaviour
     {
         if (other.transform.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().TakeDamage(damage);
+            other.GetComponent<Enemy>().TakeDamage(damage,true);
             Destroy(this.gameObject);
         }
-  
+        else if (other.transform.CompareTag("Wall"))
+        {
+            Destroy(this.gameObject);
+        }
+        else if (other.transform.CompareTag("Boss"))
+        {
+            other.GetComponent<BuzzEnemy>().TakeDamage(damage,true);
+            Destroy(this.gameObject);
+        }
+
     }
 }

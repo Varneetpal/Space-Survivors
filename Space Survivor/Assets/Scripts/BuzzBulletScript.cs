@@ -33,7 +33,7 @@ public class BuzzBulletScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Player")){
-            other.gameObject.GetComponent<PlayerController>().currentHealth -= 20;
+            other.gameObject.GetComponent<PlayerController>().currentHealth -= 15;
             Destroy(gameObject);
         }
     }
