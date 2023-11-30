@@ -2,16 +2,24 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform player; // Reference to the player's transform
-    public float smoothSpeed = 0.125f; // Smoothing factor for camera movement
+    public float smoothSpeed = 0.125f;
+    public Vector2 offset;
 
-    void LateUpdate()
+    void FixedUpdate()
     {
-        if (player != null)
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+        if (playerObject != null)
         {
-            Vector3 desiredPosition = new Vector3(player.position.x, player.position.y, transform.position.z);
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+            Transform player = playerObject.transform;
+
+            Vector3 targetPosition = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z);
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, targetPosition, smoothSpeed);
             transform.position = smoothedPosition;
+        }
+        else
+        {
+            Debug.LogWarning("Player not found. Make sure the player object has the 'Player' tag.");
         }
     }
 }
