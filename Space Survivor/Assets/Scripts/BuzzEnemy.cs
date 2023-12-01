@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BuzzEnemy : MonoBehaviour
@@ -11,6 +9,7 @@ public class BuzzEnemy : MonoBehaviour
     [SerializeField] private float damageRate = 0.5f;
     [SerializeField] private float damageTime;
     
+    private Vector2 direction;
     public GameObject deathEffect;
     public HealthBar healthbar;
     private GameObject player;
@@ -37,6 +36,10 @@ public class BuzzEnemy : MonoBehaviour
                 shoot();
             }
         }
+        direction = GameManager.instance.player.transform.position - transform.position;
+        direction.Normalize();
+        float angle = Vector2.SignedAngle(Vector2.down, direction);
+        transform.eulerAngles = new Vector3 (0, 0, angle);
     }
 
     void shoot(){

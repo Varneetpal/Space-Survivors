@@ -15,8 +15,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float damageToPlayer = 50.0f;
     [SerializeField] private float damageRate = 0.2f;
     [SerializeField] private float damageTime;
-
-
+    
     public GameObject deathEffect;
     public GameObject coinObject;
 
