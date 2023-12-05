@@ -633,7 +633,7 @@ MonoBehaviour:
     pitch: 0.72
     loop: 0
   - name: BossDeathSound
-    clip: {fileID: 8300000, guid: 538531b4d034241bb8834ff6f99e558a, type: 3}
+    clip: {fileID: 8300000, guid: 5738d47cb9c074e6c8e147c795411a87, type: 3}
     volume: 1
     pitch: 0.72
     loop: 0

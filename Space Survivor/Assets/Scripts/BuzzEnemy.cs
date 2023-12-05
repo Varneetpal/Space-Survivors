@@ -74,6 +74,7 @@ public class BuzzEnemy : MonoBehaviour
             var position = transform.position;
             var rotation = transform.rotation;
             GameObject effect = Instantiate(deathEffect, position, rotation);
+            PlayerAudioManager.instance.PlaySound("BossDeathSound");
             Destroy(effect, 1.0f);
             Destroy(this.gameObject);
         }
