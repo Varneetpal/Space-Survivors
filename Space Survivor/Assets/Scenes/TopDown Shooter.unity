@@ -627,6 +627,21 @@ MonoBehaviour:
     volume: 1
     pitch: 0.72
     loop: 0
+  - name: PickUpCoin
+    clip: {fileID: 8300000, guid: ccfe9de3413a740c88ada7e65d4ff32e, type: 3}
+    volume: 1
+    pitch: 0.72
+    loop: 0
+  - name: BossDeathSound
+    clip: {fileID: 8300000, guid: 538531b4d034241bb8834ff6f99e558a, type: 3}
+    volume: 1
+    pitch: 0.72
+    loop: 0
+  - name: BossShoot
+    clip: {fileID: 8300000, guid: ae17529a2e9f14bd389d06215449325a, type: 3}
+    volume: 1
+    pitch: 0.72
+    loop: 0
 --- !u!4 &634575167
 Transform:
   m_ObjectHideFlags: 0

@@ -43,6 +43,7 @@ public class BuzzEnemy : MonoBehaviour
     }
 
     void shoot(){
+        PlayerAudioManager.instance.PlaySound("BossShoot");
         Instantiate(bullet, bulletPos.position, Quaternion.identity);
     }
     

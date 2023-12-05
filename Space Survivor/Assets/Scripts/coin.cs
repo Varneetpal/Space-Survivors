@@ -42,6 +42,7 @@ public class coin : MonoBehaviour
         else if (other.transform.CompareTag("Player"))
         {
             GameManager.instance.increaseGold(goldWorth);
+            PlayerAudioManager.instance.PlaySound("PickUpCoin");
             Destroy(this.gameObject);
         }
     }   

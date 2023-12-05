@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
         player = Instantiate(playerDefualt);
         DontDestroyOnLoad(player);
         player.SetActive(false);
-        //PlayerAudioManager.instance.PlaySound("GameplayMusic");
         if (mainMenu){
             mainMenu.SetActive(true);
         }

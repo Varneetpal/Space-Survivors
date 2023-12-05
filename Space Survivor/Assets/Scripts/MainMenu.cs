@@ -18,6 +18,7 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("TopDown Shooter");
         GameManager.instance.activtePlayer();
+        PlayerAudioManager.instance.PlaySound("ThemeMusic");
     }
 
     public void creditOpen() {
