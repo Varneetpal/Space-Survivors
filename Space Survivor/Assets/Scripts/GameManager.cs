@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
         playerLevel = 0;
         player = Instantiate(playerDefualt);
         loadShooterScene();
+        player.GetComponent<PlayerController>().turnDecayOn();
     }
 
     public void setScoreText()

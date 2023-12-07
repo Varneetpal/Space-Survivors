@@ -57,6 +57,10 @@ public class PlayerController : MonoBehaviour
             decayOn = true;
         }
     }
+    public void turnDecayOn()
+    {
+        decayOn = true;
+    }
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
